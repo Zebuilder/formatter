@@ -1,4 +1,4 @@
-name: AI Processor CI
+name: Formatter CI
 
 on: [push]
 
@@ -23,7 +23,6 @@ jobs:
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-m2
     - name: Publish to GitHub Packages Apache Maven
-      #run: mvn -B deploy -s settings.xml
-      run: mvn -B help:effective-pom -s settings.xml
+      run: mvn -B deploy -s settings.xml
       env:
         GITHUB_TOKEN: ${{ github.token }} # GITHUB_TOKEN is the default env for the password
